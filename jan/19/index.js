@@ -31,21 +31,83 @@
 // Vowels.Create a function that takes a string in its parameters and counts the number of vowels(i.e.in English, “a, e, i, o, u”) in the string.
 //   i.e.findVowels(“this is a string”) ➞ 4
 
-function vowels(string) {
+// function vowels(string) {
 
-  let count = 0;
-  const test = ['a', 'e', 'i', 'o', 'u'];
+//   let count = 0;
+//   const test = ['a', 'e', 'i', 'o', 'u'];
 
-  for (let i = 0; i < string.length; i++) {
+//   for (let i = 0; i < string.length; i++) {
 
-    for (let j = 0; j < test.length; j++) {
+//     for (let j = 0; j < test.length; j++) {
 
-      if (test[j] == string[i]) {
-        count += 1;
+//       if (test[j] == string[i]) {
+//         count += 1;
+//       }
+//     }
+//   }
+//   return count;
+// }
+
+// console.log(vowels('inferiority complexes'));
+
+
+// No Duplicates!
+// A set is a collection of unique items.A set can be formed from an array by removing all duplicate items.Create a program which transforms an array into a set of unique values.See the examples below.Example:
+// [1, 4, 4, 7, 7, 7]➞[1, 4, 7]
+// [1, 6, 6, 9, 9]➞[1, 6, 9]
+// [2, 2, 2, 2, 2, 2]➞[2]
+// [5, 10, 15, 20, 25]➞[5, 10, 15, 20, 25]
+
+function makeSet(array) {
+
+  for (let i = 0; i < array.length; i++) {
+
+    let previous = array.slice(0, i);
+    // console.log('previous', previous);
+
+    for (let j = 0; j < previous.length; j++) {
+
+      if (previous[j] === array[i]) {
+
+        array.splice(i, 1)
+        previous = array.slice(0, i + 1);
+        // console.log('array.splice', previous);
       }
     }
   }
-  return count;
+  return array;
 }
 
-console.log(vowels('inferiority complexes'));
+console.log(makeSet([1, 4, 4, 4, 7, 7, 7, 7]));
+console.log(makeSet([1, 4, 4, 7, 7, 7]));
+console.log(makeSet([1, 6, 6, 9, 9]));
+console.log(makeSet([2, 2, 2, 2, 2, 2]));
+console.log(makeSet([5, 10, 15, 20, 25]));
+
+
+// Dictionary. (take your time on this pls) also as tip you can use.includes()
+// Create a function that takes an initial string and an array of words, and returns a filtered array of the words that start with the same letters as the initial string.
+//   Notes:
+// If none of the words match, return an empty array.
+// Keep the filtered array in the same relative order as the original array of words.
+//   Examples:
+// dictionary(“bu”, [“button”, “breakfast”, “border”]) ➞[“button”]
+// dictionary(“tri”, [“triplet”, “tries”, “trip”, “piano”, “tree”]) ➞[“triplet”, “tries”, trip”]
+// dictionary(“beau”, [“pastry”, “delicious”, “name”, “boring”]) ➞[]
+
+const dictionary = (str, arr) => {
+  let result = [];
+  let userInput = str.toLowerCase();
+
+  for (let i = 0; i < arr.length; i++) {
+    let currentValue = arr[i].toLowerCase();
+    if (currentValue.includes(userInput)) {
+      result.push(currentValue);
+    }
+  }
+  console.log(result);
+}
+
+dictionary('bu', ['button', 'breakfast', 'border'])
+dictionary('tri', ['triplet', 'tries', 'trip', 'piano', 'tree'])
+dictionary('beau', ['pastry', 'delicious', 'name', 'boring'])
