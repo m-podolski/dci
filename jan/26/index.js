@@ -82,14 +82,42 @@
 console.log('** c4n y0u r34d th15 ?**');
 
 // possible with objects and computed properties
+let code = {
+  a: '4',
+  b: 'b',
+  c: 'c',
+  d: 'd',
+  e: '3',
+  f: 'f',
+  g: 'g',
+  h: 'h',
+  i: '1',
+  j: 'j',
+  k: 'k',
+  l: 'l',
+  m: 'm',
+  n: 'n',
+  o: '0',
+  p: 'p',
+  q: 'q',
+  r: 'r',
+  s: '5',
+  t: 't',
+  u: 'u',
+  v: 'v',
+  w: 'w',
+  x: 'x',
+  y: 'y',
+  z: 'z',
+}
 function hackerSpeak(phrase) {
 
-  let code = [];
-  code['a'] = '4';
-  code['e'] = '3';
-  code['i'] = '1';
-  code['o'] = '0';
-  code['s'] = '5';
+  // let code = [];
+  // code['a'] = '4';
+  // code['e'] = '3';
+  // code['i'] = '1';
+  // code['o'] = '0';
+  // code['s'] = '5';
   // return code;
   return phrase
   .split('')
