@@ -65,15 +65,21 @@ function makeSet(array) {
     let previous = array.slice(0, i);
     // console.log('previous', previous);
 
-    for (let j = 0; j < previous.length; j++) {
+    // for (let j = 0; j < previous.length; j++) {
 
-      if (previous[j] === array[i]) {
+    if (array[i] === array[i + 1]) {
+      // if (previous[j] === array[i]) {
 
-        array.splice(i, 1)
-        previous = array.slice(0, i + 1);
-        // console.log('array.splice', previous);
+        array.splice(i + 1, 1)
+        // previous = array.slice(0, i + 1);
+
+        // join after splice
+        // call recursively
+          // makeSet(previous);
+
+        // console.log('new previous', previous);
       }
-    }
+    // }
   }
   return array;
 }
@@ -95,19 +101,19 @@ console.log(makeSet([5, 10, 15, 20, 25]));
 // dictionary(“tri”, [“triplet”, “tries”, “trip”, “piano”, “tree”]) ➞[“triplet”, “tries”, trip”]
 // dictionary(“beau”, [“pastry”, “delicious”, “name”, “boring”]) ➞[]
 
-const dictionary = (str, arr) => {
-  let result = [];
-  let userInput = str.toLowerCase();
+// const dictionary = (str, arr) => {
+//   let result = [];
+//   let userInput = str.toLowerCase();
 
-  for (let i = 0; i < arr.length; i++) {
-    let currentValue = arr[i].toLowerCase();
-    if (currentValue.includes(userInput)) {
-      result.push(currentValue);
-    }
-  }
-  console.log(result);
-}
+//   for (let i = 0; i < arr.length; i++) {
+//     let currentValue = arr[i].toLowerCase();
+//     if (currentValue.includes(userInput)) {
+//       result.push(currentValue);
+//     }
+//   }
+//   console.log(result);
+// }
 
-dictionary('bu', ['button', 'breakfast', 'border'])
-dictionary('tri', ['triplet', 'tries', 'trip', 'piano', 'tree'])
-dictionary('beau', ['pastry', 'delicious', 'name', 'boring'])
+// dictionary('bu', ['button', 'breakfast', 'border'])
+// dictionary('tri', ['triplet', 'tries', 'trip', 'piano', 'tree'])
+// dictionary('beau', ['pastry', 'delicious', 'name', 'boring'])
