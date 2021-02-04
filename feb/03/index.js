@@ -46,12 +46,8 @@ function zodiac(date) {
     zodiacDay = parseInt(zodiacDay);
     zodiacMonth = parseInt(zodiacMonth);
 
-    if (
-      ((userMonth === zodiacMonth) && (userDay >= zodiacDay)) ||
-      ((userMonth === (zodiacMonth + 1)) && (userDay <= zodiacDay))
-    ) {
-      return true;
-    }
+    return ((userMonth === zodiacMonth) && (userDay >= zodiacDay)) ||
+    ((userMonth === (zodiacMonth + 1)) && (userDay <= zodiacDay));
   });
   console.log(`Your zodiac sign is ${userZodiac.latin}`);
 }
