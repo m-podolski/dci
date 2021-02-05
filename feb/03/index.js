@@ -1,6 +1,8 @@
+'use strict';
+
 function countLetters(string) {
-  let split = string.split("");
-  let result = split.reduce((acc, letter, ind) => {
+  let split = string.split('');
+  let result = split.reduce((acc, letter) => {
     if (Object.keys(acc).includes(letter)) {
       acc[letter] += 1;
     } else {
@@ -10,8 +12,10 @@ function countLetters(string) {
   }, {});
   console.log(result);
 }
-countLetters("ABC");
-countLetters("QQQ");
+
+countLetters('ABC');
+countLetters('QQQ');
+
 
 const tropical = [
   { day: '20', month: '01', latin: 'aquarius' },
@@ -29,10 +33,9 @@ const tropical = [
 ];
 
 function zodiac(date) {
-
   let [
     userDay,
-    userMonth
+    userMonth,
   ] = date.split('-');
   userDay = parseInt(userDay);
   userMonth = parseInt(userMonth);
@@ -41,16 +44,23 @@ function zodiac(date) {
 
     let {
       day: zodiacDay,
-      month: zodiacMonth
+      month: zodiacMonth,
     } = val;
     zodiacDay = parseInt(zodiacDay);
     zodiacMonth = parseInt(zodiacMonth);
 
-    return ((userMonth === zodiacMonth) && (userDay >= zodiacDay)) ||
-    ((userMonth === (zodiacMonth + 1)) && (userDay <= zodiacDay));
+    let matchMonthBeforeDate =
+      (userMonth === zodiacMonth) &&
+      (userDay >= zodiacDay);
+    let matchMonthAfterDate =
+      (userMonth === (zodiacMonth + 1)) &&
+      (userDay <= zodiacDay);
+
+    return matchMonthBeforeDate || matchMonthAfterDate;
   });
-  console.log(`Your zodiac sign is ${userZodiac.latin}`);
+  console.log(`Your zodiac sign is ${ userZodiac.latin }`);
 }
 
 zodiac('14-02-2002'); // aquarius
 zodiac('08-05-1988'); // taurus
+zodiac('22-05-1988'); // gemini
